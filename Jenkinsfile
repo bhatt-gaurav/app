@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Publish to nexus') {
             steps{
-             nexusArtifactUploader artifacts: [[artifactId: "${ArtifactId}", classifier: '', file: 'target/WebApp-2.0.2-SNAPSHOT.war', type: 'war']], credentialsId: 'bb1e4e43-9809-41eb-a535-fc1217f9089a', groupId: "${GroupId}", nexusUrl: '172.20.10.8:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshot', version: "${Version}"
+             nexusArtifactUploader artifacts: [[artifactId: "${ArtifactId}", classifier: '', file: "target/${ArtifactId}-${Version}.war", type: 'war']], credentialsId: 'bb1e4e43-9809-41eb-a535-fc1217f9089a', groupId: "${GroupId}", nexusUrl: '172.20.10.8:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshot', version: "${Version}"
             }
         }
         // Stage 4 : Print some information
